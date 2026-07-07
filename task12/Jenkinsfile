@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Stage 1') {
+            steps { echo 'First message' }
+        }
+        stage('Stage 2') {
+            steps { echo 'Second message' }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

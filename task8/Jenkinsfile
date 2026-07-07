@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'NAME', defaultValue: 'User')
+    }
+
+    stages {
+        stage('Param') {
+            steps { echo "Hello ${params.NAME}" }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

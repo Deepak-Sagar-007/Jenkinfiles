@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('User') {
+            steps { sh 'whoami' }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hostname') {
+            steps { sh 'hostname' }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

@@ -1,0 +1,15 @@
+pipeline {
+    agent { label 'linux-node1' }
+
+    stages {
+        stage('Run') {
+            steps { echo 'Running on linux agent' }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

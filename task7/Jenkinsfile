@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    environment {
+        MY_VAR = "Hello_Deepak"
+    }
+
+    stages {
+        stage('Env') {
+            steps { echo "Value: ${MY_VAR}" }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

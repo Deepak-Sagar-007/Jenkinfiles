@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Workspace') {
+            steps { echo "Path: ${env.WORKSPACE}" }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}

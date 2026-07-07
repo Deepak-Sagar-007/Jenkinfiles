@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Script') {
+            steps {
+                sh '''
+                echo "Running script"
+                date
+                '''
+            }
+        }
+    }
+
+    post {
+        always { echo "Pipeline execution completed." }
+        success { echo "Pipeline executed successfully." }
+        failure { echo "Pipeline execution failed." }
+    }
+}
